@@ -15,10 +15,21 @@ def excel_process():
     print(sheet["F3"].value) #得到混凝土强度等级
     return "C15"
 
+def excel_xieru(temp1,temp2):
+    # path = 'D:\qt_doc\python_test2\debug\quannew.xlsx'
+    # wb = load_workbook(path)
+    # print(temp1)
+    return temp2
+
 def printhaha():
     print("hello,world")
     return "hello,world2"
-excel_process()
+
+# haha=(23,1,4)
+# haha={'zx':'3','qw':'1','io':'4'}
+
+# excel_xieru(haha)
+# excel_process()
 # printhaha()
 # print(os.getcwd())
     # wb.save('newtest2.xlsx')

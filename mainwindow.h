@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "runpython.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -16,6 +17,9 @@ public:
     ~MainWindow();
 
     RunPython* f;         //新加
+private slots:
+    void on_but_txt_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
