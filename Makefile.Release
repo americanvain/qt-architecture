@@ -63,7 +63,7 @@ OBJECTS       = release/excel_data.o \
 		release/moc_mybutton.o \
 		release/moc_runpython.o
 
-DIST          =  excel_data.h \
+DIST          = debug/mainpytest.py excel_data.h \
 		mainwindow.h \
 		mybutton.h \
 		pythreadstatelock.h \

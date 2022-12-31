@@ -21,10 +21,10 @@ void PythonInit()
 
             //执行单句Python语句，用于给出调用模块的路径，否则将无法找到相应的调用模块
             PyRun_SimpleString("import sys");
-            QString setSysPath = QString("sys.path.append('%1')").arg(QCoreApplication::applicationDirPath());
+            QString setSysPath = QString("sys.path.append('%1')").arg(QApplication::applicationDirPath());
             PyRun_SimpleString(setSysPath.toStdString().c_str());
             // 初始化线程支持
-//            PyEval_InitThreads();
+            PyEval_InitThreads();
             // 启动子线程前执行，为了释放PyEval_InitThreads获得的全局锁，否则子线程可能无法获取到全局锁。
             PyEval_ReleaseThread(PyThreadState_Get());
             qDebug("Initial Python Success!");
@@ -35,8 +35,7 @@ void PythonInit()
 }
 void RunPython::run()
 {
-    PythonInit();
-    qDebug() << "run it!";
+//    qDebug() << "run it!";
 //    Py_SetPythonHome((const wchar_t *)(L"C:/Users/zxf-pingban/AppData/Local/Programs/Python/Python310"));//设置环境变量
 //    //进行初始化
 //    Py_Initialize();
@@ -79,8 +78,9 @@ void RunPython::run()
 //    qDebug()<<res;
 //    //退出
 //    PyErr_Print();
-//    Py_Finalize();
+////    Py_Finalize();
 
+    PythonInit();
     class PyThreadStateLock PyThreadLock;//获取全局锁
        PyObject* pModule = PyImport_ImportModule("mainpytest");
        if (!pModule) {
@@ -88,7 +88,7 @@ void RunPython::run()
             return;
        }
 
-       PyObject *pFunhello = PyObject_GetAttrString(pModule, "printhaha");
+       PyObject *pFunhello = PyObject_GetAttrString(pModule, "excel_process");
        if(!pFunhello){
            qDebug() << "Get function hello failed!\n";
        }
@@ -108,7 +108,7 @@ void RunPython::run()
        PyArg_Parse(fe,"s",&res);
      //输出结果
        qDebug()<<res;
-//       Py_Finalize();
+       Py_Finalize();
 
 }
 

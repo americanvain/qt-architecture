@@ -41,6 +41,9 @@ win32:!win32-g++: PRE_TARGETDEPS += C:/Users/zxf-pingban/AppData/Local/Programs/
 #INCLUDEPATH += -I  C:\Users\zxf-pingban\AppData\Local\Programs\Python\Python310\include
 #LIBS += -LC:\Users\zxf-pingban\AppData\Local\Programs\Python\Python310\libs/ -lpython310
 
+DISTFILES += \
+    debug/mainpytest.py
+
 
 
 
